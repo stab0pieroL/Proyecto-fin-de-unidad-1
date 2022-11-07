@@ -41,7 +41,7 @@ def option_1():
         for id1 in user_input1:
             lista_pokemon(id1)
             
-        def option_2():
+def option_2():
 
         print("\t\t.:FORMA POKEMON:.")
         print("Elija un numero del 1 al 14 para seleccionar el listado por forma que desea.")
@@ -61,4 +61,27 @@ def option_1():
 
         for id2 in user_input2:
             forma_pokemon(id2)     
+
+def option_3():
+
+        print("\t\t.:HABILIDAD POKEMON:.")
+        print("Elija un numero del 1 al 327 para seleccionar el listado por habilidad que desea.")
+
+        
+        
+        user_input3=input("Ingrese la habilidad que desea: ")
+
+        link_pokiapi3='https://pokeapi.co/api/v2/ability/'
+
+        def habilidad_pokemon(id3):
+            resp = requests.get(link_pokiapi3+id3)
+
+            data = resp.json()
+
+            habilidad=[habidad['pokemon']['name'] for habidad in data['pokemon']]
+            print(f"Lista de pokemon por habilidad: {habilidad}")
+
+        for id3 in user_input3:
+            habilidad_pokemon(id3)
+
        
