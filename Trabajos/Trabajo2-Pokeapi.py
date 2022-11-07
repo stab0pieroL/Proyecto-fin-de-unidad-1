@@ -124,4 +124,32 @@ def option_5():
 
         for id5 in user_input5:
             tipo_pokemon(id5)
-       
+            
+option = 0
+while option !=6:
+    print("\n- - - - - - - - Bienvenido al programa de listado de Pokemon - - - - - - -")
+    print("Elige la opcion segun el metodo de listado preferido.")
+    print("[1] Opcion por generación")
+    print("[2] Opcion por forma")
+    print("[3] Opcion por habilidad")
+    print("[4] Opcion por habitad")
+    print("[5] Opcion por tipo")
+    print("[6] Salir")
+    option=int(input("Ingrese su opcion: "))
+    if option ==1:
+        option_1()
+
+    if option ==2:
+        option_2()
+
+    if option ==3:
+        option_3()
+
+    if option ==4:
+        option_4()
+
+    if option ==5:
+        option_5()
+
+    else:
+        print("Saliendo del programa.")
