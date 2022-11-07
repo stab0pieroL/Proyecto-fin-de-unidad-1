@@ -83,5 +83,24 @@ def option_3():
 
         for id3 in user_input3:
             habilidad_pokemon(id3)
+            
+def option_4():
 
+        print("\t\t.:FORMA POKEMON:.")
+        print("Elija un numero del 1 al 9 para seleccionar el listado por habitad que desea.")
+
+        user_input4=input("Ingrese el habitad que desea: ")
+
+        link_pokiapi4='https://pokeapi.co/api/v2/pokemon-habitat/'
+
+        def habitad_pokemon(id4):
+            resp= requests.get(link_pokiapi4+id4)
+
+            data=resp.json()
+
+            habitad=[habitad ['name'] for habitad in data['pokemon_species']]
+            print(f"Lista de pokemon por hábitad: {habitad}")
+
+        for id4 in user_input4:
+            habitad_pokemon(id4)
        
