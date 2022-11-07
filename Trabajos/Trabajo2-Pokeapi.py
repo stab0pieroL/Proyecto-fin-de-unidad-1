@@ -103,4 +103,25 @@ def option_4():
 
         for id4 in user_input4:
             habitad_pokemon(id4)
+
+def option_5():
+
+        print("\t\t.:FORMA POKEMON:.")
+        print("Elija un numero del 1 al 20 para seleccionar el listado por tipo que desea.")
+
+
+        user_input5=input("Ingrese el tipo que desea: ")
+
+        link_pokiapi5='https://pokeapi.co/api/v2/type/'
+
+        def tipo_pokemon(id5):
+            resp= requests.get(link_pokiapi5+id5)
+
+            data=resp.json()
+
+            tipo=[tipo ['pokemon']['name'] for tipo in data['pokemon']]
+            print(f"Lista de pokemon por tipo: {tipo}")
+
+        for id5 in user_input5:
+            tipo_pokemon(id5)
        
