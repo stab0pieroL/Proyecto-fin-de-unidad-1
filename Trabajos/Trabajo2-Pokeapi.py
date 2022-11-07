@@ -1,26 +1,27 @@
-#Aquí se trabajara el programa que interactua con la PokeAPI
-# POKEAPI - TRABAJO GRUPAL
-
-#La tarea gira en torno a la PokeAPI: https://pokeapi.co/docs/v2 utilizar la API v2 y el paquete requests de Python
-
-#Escribir un programa que tenga las siguientes opciones:
-
-#Opción 1: Listar pokemons por generación. Se ingresa alguna generación (1, 2, 3, ..) y se listan todos los pokemon respectivos.
-#Opción 2: Listar pokemons por forma. Se ingresa alguna forma (deben sugerir valores) y se listan todos los pokemons respectivos.
-#Opción 3: Listar pokemons por habilidad. Se deben sugerir opciones a ingresar para interactuar.
-#Opción 4: Listar pokemons por habitat. Se deben sugerir opciones a ingresar para interactuar.
-#Opción 5: Listar pokemons por tipo. Se deben sugerir opciones a ingresar para interactuar.
-#Nota: listar pokemons involucra: nombre, habilidad y URL de la imagen
-
-
-# "***********************************************************************************************"
-
-import requests 
+import requests
 import json
 
-link_pokeapi = "https://pokeapi.co/docs/v2"
-pokemones = ["clefairy","bulbasaur","wormadam","charmander"]
+print("\t\t.:GENERACION POKEMON:.")
+print("1.Generation-1\n"
+      "2.Generation-2\n"
+      "3.Generation-3\n"
+      "4.Generation-4\n"
+      "5.Generation-5\n"
+      "6.Generation-6\n"
+      "7.Generation-7\n"
+      "8.Generation-8\n")
 
-def lista_pokemon(pokemones):
-    resp = requests.get(link_pokeapi + pokemones)
+link_pokiapi1 = 'https://pokeapi.co/api/v2/generation/'
+
+user_input1=input("Introduce la generacion: ")
+
+def lista_pokemon(id1):
+    resp = requests.get(link_pokiapi1+id1)
+
     data = resp.json()
+
+    gen_pokemon = [gen['name'] for gen in data['pokemon_species']]
+    print(f"Pokemon: {gen_pokemon} ")
+
+for id1 in user_input1:
+    lista_pokemon(id1) 
